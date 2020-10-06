@@ -13,28 +13,50 @@ const AppHeader = () => {
 };
 
 const SearchPanel = () => {
+
+    const seachText = 'Type here to seach';
+    const seachStyle = {
+        fontSize: '20px'
+    };
+
     return (
-        <input placeholder="search" />
+        <input
+            style={seachStyle}
+            placeholder={seachText}/>
     );
 };
 
 const TodoList = () => {
+
+    const items = ['Learn React', 'Build Awesome App'];
     return (
         <ul>
-            <li>Learn React</li>
-            <li>Build Awesome App</li>
+            <li>${ items[0] }</li>
+            <li>${ items[1] }</li>
         </ul>
     );
 };
 
 const App = () => {
-  return (
+
+    const isLoggedIn = true;
+    const loginBox = <span>Log in please</span>;
+    const welcomeBox = <span>Welcome Back</span>
+
+    const value = '<script>alert("")</script>';
+
+    return (
       <div>
+          {value} <br/>
+          { loginBox } <br/>
+          { isLoggedIn ? null : loginBox } <br/>
+          { isLoggedIn ? welcomeBox : loginBox } <br/>
+          <span>{ (new Date()).toString() }</span>
           <AppHeader />
           <SearchPanel />
           <TodoList />
       </div>
-  );
+    );
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));
