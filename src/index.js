@@ -14,8 +14,13 @@ const App = () => {
     const isLoggedIn = true;
     const loginBox = <span>Log in please</span>;
     const welcomeBox = <span>Welcome Back</span>
-
     const value = '<script>alert("")</script>';
+
+    const todoData = [
+        { label: 'Drink coffe', important: false },
+        { label: 'Make Awesome App', important: true },
+        { label: 'Have a lunch', important: false }
+    ];
 
     return (
       <div>
@@ -26,7 +31,7 @@ const App = () => {
           <span>{ (new Date()).toString() }</span>
           <AppHeader />
           <SearchPanel /> <br/>
-          <TodoList />
+          <TodoList todos={todoData} />
       </div>
     );
 };
