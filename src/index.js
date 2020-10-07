@@ -1,39 +1,33 @@
-import React from "react";
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-import AppHeader from "./components/app-header";
-import SearchPanel from "./components/search-panel";
-import TodoList from "./components/todo-list";
+import AppHeader from './components/app-header';
+import SearchPanel from './components/search-panel';
+import TodoList from './components/todo-list';
+import ItemStatusFilter from './components/item-status-filter';
 
-// const el = React.createElement('h1', null, 'Hello, World!');
-// const el = <h1>Hello, World!</h1>; // JSX код
-// ReactDOM.render(el, document.getElementById('root'));
+import './index.css';
 
 const App = () => {
 
-    const isLoggedIn = true;
-    const loginBox = <span>Log in please</span>;
-    const welcomeBox = <span>Welcome Back</span>
-    const value = '<script>alert("")</script>';
+  const todoData = [
+    { label: 'Drink Coffee', important: false, id: 1 },
+    { label: 'Make Awesome App', important: true, id: 2 },
+    { label: 'Have a lunch', important: false, id: 3 }
+  ];
 
-    const todoData = [
-        { label: 'Drink coffe', important: false, id: 1},
-        { label: 'Make Awesome App', important: true, id: 2 },
-        { label: 'Have a lunch', important: false, id: 3}
-    ];
-
-    return (
-      <div>
-          {value} <br/>
-          { loginBox } <br/>
-          { isLoggedIn ? null : loginBox } <br/>
-          { isLoggedIn ? welcomeBox : loginBox } <br/>
-          <span>{ (new Date()).toString() }</span>
-          <AppHeader />
-          <SearchPanel /> <br/>
-          <TodoList todos={todoData} />
+  return (
+    <div className="todo-app">
+      <AppHeader toDo={1} done={3} />
+      <div className="top-panel d-flex">
+        <SearchPanel />
+        <ItemStatusFilter />
       </div>
-    );
+
+      <TodoList todos={todoData} />
+    </div>
+  );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />,
+  document.getElementById('root'));
