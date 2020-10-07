@@ -1,41 +1,13 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 
+import AppHeader from "./components/app-header";
+import SearchPanel from "./components/search-panel";
+import TodoList from "./components/todo-list";
 
 // const el = React.createElement('h1', null, 'Hello, World!');
 // const el = <h1>Hello, World!</h1>; // JSX код
 // ReactDOM.render(el, document.getElementById('root'));
-
-const AppHeader = () => {
-    return (
-        <h1>My Todo List</h1>
-    );
-};
-
-const SearchPanel = () => {
-
-    const seachText = 'Type here to seach';
-    const seachStyle = {
-        fontSize: '20px'
-    };
-
-    return (
-        <input
-            style={seachStyle}
-            placeholder={seachText}/>
-    );
-};
-
-const TodoList = () => {
-
-    const items = ['Learn React', 'Build Awesome App'];
-    return (
-        <ul>
-            <li>${ items[0] }</li>
-            <li>${ items[1] }</li>
-        </ul>
-    );
-};
 
 const App = () => {
 
@@ -53,7 +25,7 @@ const App = () => {
           { isLoggedIn ? welcomeBox : loginBox } <br/>
           <span>{ (new Date()).toString() }</span>
           <AppHeader />
-          <SearchPanel />
+          <SearchPanel /> <br/>
           <TodoList />
       </div>
     );
