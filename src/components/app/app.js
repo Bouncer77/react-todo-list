@@ -45,15 +45,6 @@ export default class App extends Component {
     };
 
     addItem = (text) => {
-
-        // gen id
-        /*const newItem = {
-            label: text,
-            important: false,
-            id: this.maxId++
-        };*/
-
-        // add item in new state
         this.setState(({ todoData }) => {
 
             let newArr = [
@@ -100,12 +91,10 @@ export default class App extends Component {
 
         const { todoData } = this.state;
 
-        // Количество сделанных элементов
         const doneCount = todoData
             .filter((el) => el.done)
             .length;
 
-        // Элементов осталось сделать
         const todoCount = todoData.length - doneCount;
 
         return (
